@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babies Corner | Login</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <section class="header">
+        <!-- LOGO SECTION -->
+        <div class="logo__section">
+            <img src="{% static 'images/projectx-logo.png' %}" alt="Logo" />
+            <p>Babies <span>Corner</span></p>
+        </div>
+    
+        <!-- SEARCH SECTION -->
+        <div class="search__section">
+            <input class="search__box" type="text" placeholder="Search products, categories, brands and more" />
+        </div>
+    
+        <!-- NAVIGATION -->
+        <nav>
+            <a href="/" class="nav__links">HOME</a>
+            <a href="/" class="nav__links">SHOP</a>
+            <a href="/" class="nav__links">FAQ</a>
+            <div>
+                <a href="/"><i id="icon" class="fa fa-shopping-cart"></i></a>
+                <a href="/"><i id="icon" class="fa fa-user"></i></a>
+            </div>
+        </nav>
+    </section>
+
+    <section class="body">
+        <form method="post">
+            {% csrf_token %}
+
+            <input type="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button>Login</button>
+        </form>
+    </section>
+</body>
+</html>
