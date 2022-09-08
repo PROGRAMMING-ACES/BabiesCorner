@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('BabiesCorner.urls')),
-    path("paystack", include(('paystack.urls', 'paystack'),namespace='paystack'))
+    # path("paystack", include(('paystack.urls', 'paystack'), namespace='paystack'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

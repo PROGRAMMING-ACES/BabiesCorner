@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'BabiesCorner',
     'Users',
     'django.contrib.humanize',
-    'paystack'
-    # 'crispy_forms'
+    'paystack',
+    'crispy_forms'
 ]
 
 PAYSTACK_PUBLIC_KEY = "pk_test_4d5007ad7bd59da7fc379331b8a7b070dc98fc7a"

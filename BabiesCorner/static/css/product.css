@@ -1,0 +1,240 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* HEADER */
+.header {
+    background: white;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #CCC;
+}
+
+/* LOGO SECTION */
+.logo__section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo__section > img {
+    width: 150px;
+    margin-top: 15px;
+}
+
+.logo__section > p {
+    color: aqua;
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 15px;
+    margin-left: -30px;
+}
+
+.logo__section > p > span  {
+    color: rgb(237, 60, 60);
+    margin-left: -10px;
+}
+
+/* SEARCH */
+.search__section {
+    flex: 1;
+    margin: 0 4%;
+}
+
+.search__box {
+    width: 100%;
+    height: 45px;
+    color: #CCC;
+    border: 2px solid #CCC;
+    background: transparent;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.search__box::placeholder {
+    color: #CCC;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav__links {
+    color: aqua;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.nav__links:hover {
+    color: aqua;
+}
+
+.nav__links::after {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background: red;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav__links:hover::after {
+    width: 100%;
+}
+
+#icon {
+    font-size: 22px;
+    color: lightblue;
+    margin-right: 10px;
+}
+
+/* BODY */
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 30px;
+}
+
+.first-section {
+    width: 100%;
+    display: flex;
+}
+
+.product__image {
+    width: 230px;
+    height: 230px;
+}
+
+.description__section {
+    display: flex;
+    flex-direction: column;
+    margin-left: 4%;
+    justify-content: space-between;
+}
+
+.product__name {
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.product__price {
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.product__description {
+    color: #666;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: justify;
+}
+
+.cart__count {
+    display: flex;
+    align-items: center;
+}
+
+.cart__count__box {
+    width: 40px;
+    height: 30px;
+    border: 2px solid #CCC;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.cart__count__box > span {
+    color: #666;
+    font-weight: 700;
+}
+
+#icon {
+    font-size: 14px;
+    color: #666;
+    margin-left: 8px;
+}
+
+.cart__button {
+    background: orange;
+    width: initial;
+    height: 35px;
+    color: white;
+    border-radius: 8px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 20px;
+    padding-top: 6px;
+    margin-top: 30px;
+}
+
+.cart__button:hover {
+    text-decoration: none;
+    color: white;
+}
+
+/* RELATED PRODUCTS */
+.related__products {
+    width: 100%;
+    padding: 30px 0;
+}
+
+.related__products__header {
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    margin: 25px 0;
+}
+
+.related__products__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.related__product {
+    width: 150px;
+    height: 160px;
+    padding: 0 5px 10px 5px;
+}
+
+.related__product:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 2px #CCC ;
+}
+
+.related__product__image {
+    width: 100%;
+    height: 130px;
+}
+
+.related__product__name {
+    color: #666;
+    font: 600 13px 'Open Sans', sans-serif;
+    text-decoration: none;
+    margin-top: 8px;
+}

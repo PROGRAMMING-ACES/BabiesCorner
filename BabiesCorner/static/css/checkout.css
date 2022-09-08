@@ -1,0 +1,279 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* HEADER */
+.header {
+    background: white;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #CCC;
+}
+
+/* LOGO SECTION */
+.logo__section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo__section>img {
+    width: 150px;
+    margin-top: 15px;
+}
+
+.logo__section>p {
+    color: aqua;
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 15px;
+    margin-left: -30px;
+}
+
+.logo__section>p>span {
+    color: rgb(237, 60, 60);
+    margin-left: -10px;
+}
+
+/* SEARCH */
+.search__section {
+    flex: 1;
+    margin: 0 4%;
+}
+
+.search__box {
+    width: 100%;
+    height: 45px;
+    color: #CCC;
+    border: 2px solid #CCC;
+    background: transparent;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.search__box::placeholder {
+    color: #CCC;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav__links {
+    color: aqua;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.nav__links:hover {
+    color: aqua;
+}
+
+.nav__links::after {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background: red;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav__links:hover::after {
+    width: 100%;
+}
+
+#icon {
+    font-size: 22px;
+    color: lightblue;
+    margin-right: 10px;
+}
+
+/* BODY */
+.body {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 30px 50px 30px;
+}
+
+.first-section {
+    width: 57%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* FORM SECTION */
+.form__section {
+    width: 100%;
+}
+
+.form__header {
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    margin: 0 0 15px 0;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0 0 0;
+}
+
+.form_input {
+    width: 49%;
+}
+
+.form_input > input {
+    width: 100%;
+    height: 40px;
+    color: #666;
+    border-radius: 8px;
+    border: 3px solid #CCC;
+    background: transparent;
+    padding-left: 10px;
+    margin-bottom: 25px;
+}
+
+.form_input > input::placeholder {
+    color: #666;
+}
+
+.form_input_long {
+    width: 100%;
+}
+
+.form_input_long > input {
+    width: 100%;
+    height: 40px;
+    color: #666;
+    border-radius: 8px;
+    border: 3px solid #CCC;
+    background: transparent;
+    padding-left: 10px;
+    margin-bottom: 25px;
+}
+
+.form_input_long > input::placeholder {
+    color: #666;
+}
+
+.form_select {
+    width: 100%;
+}
+
+.form_select > select {
+    width: 100%;
+    height: 40px;
+    color: #666;
+    border-radius: 8px;
+    border: 3px solid #CCC;
+    background: transparent;
+    padding-left: 10px;
+    margin-bottom: 25px;
+}
+
+.form_select > select::placeholder {
+    color: #666;
+}
+
+.form_textarea {
+    width: 100%;
+}
+
+.form_textarea > textarea {
+    width: 100%;
+    height: 100px;
+    color: #666;
+    border-radius: 8px;
+    border: 3px solid #CCC;
+    background: transparent;
+    padding-left: 10px;
+    margin-bottom: 25px;
+}
+
+.textarea textarea::placeholder {
+    color: #666;
+}
+
+.submit {
+    background: orange;
+    width: 200px;
+    height: 40px;
+    color: white;
+    border-radius: 8px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+}
+
+.submit:hover {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* SUBTOTAL */
+.cart__subtotal__section {
+    width: 40%;
+    height: 200px;
+    border-radius: 5px;
+    background-color: #F3F3F3;
+}
+
+.subtotal__header {
+    color: #333;
+    font: 700 15px 'Open Sans', sans-serif;
+    text-decoration: none;
+    padding: 20px;
+    border-bottom: 1px solid #CCC;
+}
+
+.subtotal__total__section {
+    padding: 20px;
+}
+
+.subtotal__amount {
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.checkout {
+    background: orange;
+    width: initial;
+    height: 35px;
+    color: white;
+    border-radius: 8px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 6px;
+    margin-top: 30px;
+}
+
+.checkout:hover {
+    text-decoration: none;
+    color: white;
+}

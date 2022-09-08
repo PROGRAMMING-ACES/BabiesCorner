@@ -1,0 +1,130 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Glitter | Category</title>
+    <link rel="stylesheet" href="{% static 'css/category.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css' %}">
+</head>
+<body>
+    <!-- HEADER -->
+    <section class="header">
+        <!-- LOGO SECTION -->
+        <div class="logo__section">
+            <img src="{% static 'images/projectx-logo.png' %}" alt="Logo" />
+            <p>Babies <span>Corner</span></p>
+        </div>
+
+        <!-- SEARCH SECTION -->
+        <div class="search__section">
+            <input class="search__box" type="text" placeholder="Search products, categories, brands and more" />
+        </div>
+
+        <!-- NAVIGATION -->
+        <nav>
+            <a href="/" class="nav__links">HOME</a>
+            <a href="/" class="nav__links">SHOP</a>
+            <a href="/" class="nav__links">FAQ</a>
+            <div>
+                <a href="/"><i id="icon" class="fa fa-shopping-cart"></i></a>
+                <a href="/"><i id="icon" class="fa fa-user"></i></a>
+            </div>
+        </nav>
+    </section>
+
+    <!-- BODY -->
+    <section class="body">
+        <!-- CATEGORIES SECTION -->
+        <div class="categories__section">
+            <p class="categories__header">CATEGORIES</p>
+
+            {% for category in productCategories %}
+                <a href="{% url 'category' category.name %}" class="col-md-4" id="category">
+                    <span id="category__name">{{ category.name }}</span>
+                </a>
+            {% endfor %}
+        </div>
+
+        <!-- CATEGORY PRODUCTS -->
+        <div class="container">
+            <p class="category__name">{{ category }}</p>
+            <p class="category__caption">Shop {{ category.name }}</p>
+            
+            <div class="row my-5 mx-1 justify-content-between" >
+                {% for product in products %}
+                <a href="{% url 'product' product.name %}" class="col-md-4" id="product">
+                    <img id="product__image" src="{{ product.image.url }}" alt="Product Image" />
+                    <p id="product__name">{{ product.name }}</p>
+                    <p id="product__price">&#8358;{{ product.price|intcomma }}</p>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="page_footer">
+        <div class="page-footer-flex">
+            <div class="New_page">
+                <h5>Are you new on Tastetee?</h5>
+                <p>Think you will like Tastetee premium</p>
+    
+                <form class="form">
+                    <input id="form" type="email" placeholder="Enter email address" />
+                    <button id="button" type="submit">
+                        <p>Sign up</p>
+                    </button>
+                </form>
+    
+                <div class="icons">
+                    <a href="/"><i id="payment" class="fa fa-paypal"></i></a>
+                    <a href="/"><i id="payment" class="fa fa-cc-mastercard"></i></a>
+                    <a href="/"><i id="payment" class="fa fa-cc-visa"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-category">
+                <h5 class="dee">Let us help you</h5>
+                <li><a href="/">How to shop</a></li>
+                <li><a href="/">Delivery options</a></li>
+                <li><a href="/">How to cancel an order</a></li>
+                <li><a href="/">Report a product</a></li>
+                <li><a href="/">Dispute resolution</a></li>
+                <li><a href="/">Create bulk purchase</a></li>
+            </div>
+    
+            <div class="footer-category">
+                <h5>About tastetee</h5>
+                <li><a href="/">About us</a></li>
+                <li><a href="/">Tastetee express</a></li>
+                <li><a href="/">Terms and conditons</a></li>
+                <li><a href="/">Privacy and cookies</a></li>
+                <li><a href="/">Flash sales</a></li>
+                <li><a href="/">Tastetee prime</a></li>
+            </div>
+    
+            <div class="footer-category">
+                <h5>Tastetee Branches</h5>
+                <li><a href="/">Abuja</a></li>
+                <li><a href="/">Oweri</a></li>
+                <li><a href="/">Lagos</a></li>
+                <li><a href="/">Abuja</a></li>
+                <li><a href="/">Calabar</a></li>
+                <li><a href="/">Port Harcourt</a></li>
+            </div>
+        </div>
+    
+        <hr class="horizontal__line">
+        
+        <p class="follow__header">Follow our social media handles</p>
+        <div class="Follow">
+            <a href="/"><i class="fa fa-instagram"></i></a>
+            <a href="/"><i class="fa fa-facebook-square"></i></a>
+            <a href="/"><i class="fa fa-twitter-square"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

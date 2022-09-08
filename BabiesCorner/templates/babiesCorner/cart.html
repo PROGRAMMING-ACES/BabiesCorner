@@ -1,0 +1,125 @@
+{% load static %} {% load humanize %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Glitter | Cart</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="{% static 'images/projectx-logo.png' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css' %}"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <section class="header">
+      <!-- LOGO SECTION -->
+      <div class="logo__section">
+        <img src="{% static 'images/projectx-logo.png' %}" alt="Logo" />
+        <p>Babies <span>Corner</span></p>
+      </div>
+
+      <!-- SEARCH SECTION -->
+      <div class="search__section">
+        <input
+          class="search__box"
+          type="text"
+          placeholder="Search products, categories, brands and more"
+        />
+      </div>
+
+      <!-- NAVIGATION -->
+      <nav>
+        <a href="/" class="nav__links">HOME</a>
+        <a href="/" class="nav__links">SHOP</a>
+        <a href="/" class="nav__links">FAQ</a>
+        <div>
+          <a href="/"><i id="icon" class="fa fa-shopping-cart"></i></a>
+          <a href="/"><i id="icon" class="fa fa-user"></i></a>
+        </div>
+      </nav>
+    </section>
+
+    <!-- BODY -->
+    <section class="body">
+      <div class="cart__items__section">
+        <p class="cart__items__section__header">Products</p>
+
+        <div class="cart__items__container">
+            {% if order.products.all %} 
+                {% for order_product in order.products.all %}
+                <div class="cart__item">
+                    <img
+                        class="cart__item__image"
+                        src="{{ order_product.product.image.url }}"
+                        alt="Product Image"
+                    />
+                    <div class="cart__item__info">
+                        <p class="cart__item__name">{{ order_product.product.name }}</p>
+                        <p class="cart__item__price">
+                        <small>&#8358;</small>{{ order_product.product.price|intcomma }}
+                        </p>
+                        <p class="cart__item__count">
+                        Total: {{ order_product.getTotalProductPrice|intcomma }}
+                        </p>
+                    </div>
+                    <div class="cart__count">
+                        <a
+                        href="{% url 'remove_single_product_from_cart' order_product.product.name %}"
+                        class="cart__count__box"
+                        >
+                        <i id="icon" class="fa fa-minus"></i>
+                        </a>
+                        <div class="cart__count__box">{{ order_product.quantity }}</div>
+                        <a
+                        href="{% url 'add_product_to_cart' order_product.product.name %}"
+                        class="cart__count__box"
+                        >
+                        <i id="icon" class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                    <a
+                        href="{% url 'remove_product_from_cart' order_product.product.name %}"
+                        class="cart__remove__box"
+                    >
+                        <span>Remove</span>
+                    </a>
+                </div>
+                {% endfor %} 
+            {% else %}
+                <div class="empty_flex">
+                  <p class="empty">Your cart is empty.</p>
+                  <p class="continue">
+                      Start shopping <span><a href="{% url 'home'  %}">here</a>.</span>
+                  </p>
+                </div>
+            {% endif %}
+        </div>
+      </div>
+
+      <div class="cart__subtotal__section">
+        <div class="subtotal__header">Subtotal</div>
+
+        <div class="subtotal__total__section">
+          {% if order.products.all %}
+            <p class="subtotal__amount">Total - &#8358;{{ order.getSumTotal|intcomma }}</p>
+            <a class="checkout"  href="{% url 'checkout' %}">CHECKOUT</a>
+          {% else %}
+            <p class="subtotal__amount">Total - No items here</p>
+            <a class="checkout"  href="{% url 'home' %}">ADD ITEMS TO CART <i class="fa fa-shopping-cart"></i></a>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

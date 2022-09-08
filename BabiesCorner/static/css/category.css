@@ -1,0 +1,359 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* HEADER */
+.header {
+    background: white;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #CCC;
+}
+
+/* LOGO SECTION */
+.logo__section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo__section > img {
+    width: 150px;
+    margin-top: 15px;
+}
+
+.logo__section > p {
+    color: aqua;
+    font-family: cursive;
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 15px;
+    margin-left: -30px;
+}
+
+.logo__section > p > span  {
+    color: rgb(237, 60, 60);
+    margin-left: -10px;
+}
+
+/* SEARCH */
+.search__section {
+    flex: 1;
+    margin: 0 4%;
+}
+
+.search__box {
+    width: 100%;
+    height: 45px;
+    color: #CCC;
+    border: 2px solid #CCC;
+    background: transparent;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+.search__box::placeholder {
+    color: #CCC;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav__links {
+    color: aqua;
+    font-family: sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.nav__links:hover {
+    color: aqua;
+}
+
+.nav__links::after {
+    content: '';
+    width: 0%;
+    height: 3px;
+    background: red;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.nav__links:hover::after {
+    width: 100%;
+}
+
+#icon {
+    font-size: 22px;
+    color: lightblue;
+    margin-right: 10px;
+}
+
+/* BODY */
+.body {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* CATEGORIES SECTION */
+.categories__section {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 37px 20px;
+}
+
+.categories__header {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    color: #003;
+}
+
+#category {
+    background: transparent;
+    width: 100%;
+    display: block;
+    padding: 6px 20px 6px 5px;
+    transition: 1s;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#category:hover {
+    background: #F3F3F3;
+}
+
+#category__name {
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+    text-decoration: none;
+}
+
+#category__name:hover {
+    color: #333;
+}
+
+/* CATEGORY PRODUCTS */
+.container {
+    padding: 30px 20px;
+    border-left: 1px solid #CCC;
+}
+.category__name {
+    font-size: 25px;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    color: #003;
+}
+
+.category__caption {
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    color: #003;
+    margin-top: -10px;
+}
+
+#product {
+    width: 200px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+    border: 0.5px solid #CCC;
+    border-radius: 8px;
+    display: block;
+    text-decoration: none;
+}
+
+#product:hover {
+    text-decoration: none;
+    box-shadow: 3px 5px 2px #F3F3F3;
+}
+
+#product__image {
+    width: 100%;
+    height: 190px;
+    position: relative;
+    top: 0;
+}
+
+#product__name {
+    color: rgb(11, 11, 58);
+    font-size: 17px;
+    font-weight: 500;
+    font-family: cursive;
+    text-decoration: none;
+}
+
+#product__price {
+    color: rgb(11, 11, 58);
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+/* FOOTER */
+.page_footer {
+    background: #003;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style-type: none;
+    padding: 30px 3%;
+    font-style: color;
+    color: goldenrod;
+    font-size: large;
+}
+
+.page-footer-flex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.New_page {
+    width: 23%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    position: relative;
+    left: -100px;
+}
+
+.page_footer h5 {
+    color: goldenrod;
+    font-family: sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.New_page>p {
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: sans-serif;
+    margin-bottom: 20px;
+}
+
+.footer-category li {
+    margin-bottom: 10px;
+}
+
+.footer-category a {
+    font-size: 13px;
+    font-family: sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer-category a:hover {
+    color: goldenrod;
+}
+
+.icons {
+    font-size: 30px;
+    margin-top: 60px;
+    color: goldenrod;
+}
+
+.icons>a {
+    position: relative;
+    justify-content: space-between;
+    color: white;
+}
+
+
+.form {
+    display: flex;
+    align-items: center;
+}
+
+.form>input {
+    width: 200px;
+    height: 34px;
+    background: transparent;
+    border: 2px solid goldenrod;
+    border-radius: 10px;
+    color: goldenrod;
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding-left: 5px;
+    margin-top: 8px;
+}
+
+.form>input::placeholder {
+    color: goldenrod;
+}
+
+.form>input:focus {
+    border-color: goldenrod;
+}
+
+#button {
+    width: 200px;
+    height: 34px;
+    padding-top: 5px;
+    margin-top: 8px;
+    color: goldenrod;
+    background-color: transparent;
+    border: 2.5px solid goldenrod;
+    border-radius: 10px;
+    font-family: sans-serif;
+    font-size: 13px;
+    margin-left: 5px;
+    transition: 1s;
+}
+
+#button:hover {
+    background: goldenrod;
+    color: #003;
+    cursor: pointer;
+}
+
+.horizontal__line {
+    background: white;
+    width: 100%;
+    height: 3px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.follow__header {
+    color: #f3f3f3;
+    font: 600 20px sans-serif;
+    text-align: center;
+}
+
+.Follow {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.Follow>a {
+    color: #f3f3f3;
+    margin-right: 10px;
+}

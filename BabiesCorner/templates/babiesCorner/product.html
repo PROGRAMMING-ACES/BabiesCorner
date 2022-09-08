@@ -1,0 +1,120 @@
+{% load static %} {% load humanize %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Glitter | Product</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css' %}"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <section class="header">
+      <!-- LOGO SECTION -->
+      <div class="logo__section">
+        <img src="{% static 'images/projectx-logo.png' %}" alt="Logo" />
+        <p>Babies <span>Corner</span></p>
+      </div>
+
+      <!-- SEARCH SECTION -->
+      <div class="search__section">
+        <input
+          class="search__box"
+          type="text"
+          placeholder="Search products, categories, brands and more"
+        />
+      </div>
+
+      <!-- NAVIGATION -->
+      <nav>
+        <a href="/" class="nav__links">HOME</a>
+        <a href="/" class="nav__links">SHOP</a>
+        <a href="/" class="nav__links">FAQ</a>
+        <div>
+          <a href="/"><i id="icon" class="fa fa-shopping-cart"></i></a>
+          <a href="/"><i id="icon" class="fa fa-user"></i></a>
+        </div>
+      </nav>
+    </section>
+
+    <!-- BODY -->
+    <section class="body">
+      <div class="first-section">
+        <img
+          class="product__image"
+          src="{{ single__product.image.url }}"
+          alt="Product Image"
+        />
+
+        
+        <div class="description__section">
+          <p class="product__name">{{ single__product.name }}</p>
+          <p class="product__price">
+            <small>&#8358;</small>{{ single__product.price|intcomma }}
+          </p>
+          <p class="product__description">{{ single__product.description }}</p>
+          <div class="cart__count">
+            <a
+              href="{% url 'remove_single_product_from_cart' single__product.name %}"
+              class="cart__count__box"
+              ><i id="icon" class="fa fa-minus"></i
+            ></a>
+            {% if order.products.all %} 
+              {% for order_product in order.products.all %}
+                {% if order_product.product.name == single__product.name %}
+                    <div class="cart__count__box">
+                      <span>{{ order_product.quantity }}</span>
+                    </div>
+                {% else %}
+                    <div class="cart__count__box">
+                      <span>0</span>
+                    </div>
+                {% endif %}
+              {% endfor %} 
+            {% else %}
+                <div class="cart__count__box">
+                  <span>0</span>
+                </div>
+            {% endif %}
+            <a
+              href="{% url 'add_product_to_cart' single__product.name %}"
+              class="cart__count__box"
+            >
+              <i id="icon" class="fa fa-plus"></i>
+            </a>
+          </div>
+
+          <div class="proceed__section">
+            <a href="{% url 'cart' %}" class="cart__button"
+              >PROCEED TO CART <span><i class="fa fa-shopping-cart"></i></span
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="related__products">
+        <p class="related__products__header">Related Products</p>
+
+        <div class="related__products__container">
+          {% for product in relatedProducts %}
+          <div class="related__product">
+            <img
+              class="related__product__image"
+              src="{{ product.image.url }}"
+              alt="Related Product"
+            />
+            <p class="related__product__name">{{ product.name }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

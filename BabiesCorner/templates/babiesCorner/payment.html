@@ -1,0 +1,67 @@
+{% load paystack %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babies Corner | Payment</title>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+    <script>
+        window.onload=function(){
+            payWithPaystack();
+        };
+        
+        function payWithPaystack(){
+                var handler = PaystackPop.setup({
+                    key: '{{ PAYSTACK_PUBLIC_KEY }}',
+                    email:'{{ shipping.email }}',
+                    amount:parseInt('{{ price }}' * 100 ),
+                    currency: "NGN",
+                    metadata: {
+                        custom_fields: [
+                            {
+                                display_name: 'Customer Name',
+                                variable_name: "full_name",
+                                value: '{{ shipping.firstname  }}' + ' ' + '{{ shipping.lastname }}'
+                            },
+                            {
+                                display_name: 'Customer Address',
+                                variable_name: "full_address",
+                                value: '{{ shipping.street_address  }}' + '{{ shipping.apartment }}' 
+                            },
+                            {
+                                display_name: 'State',
+                                variable_name: "state",
+                                value: '{{ shipping.state }}'
+                            },
+                            {
+                                display_name: 'Postal Code',
+                                variable_name: "postal_code",
+                                value: '{{ shipping.postal_code  }}'
+                            },
+                            {
+                                display_name: 'Mobile Number',
+                                variable_name: "mobile_number",
+                                value: '{{ shipping.phone }}'
+                            },
+                            {
+                                value: '{{ orderItemsLoop }}'
+                            },
+                        ]
+                    },
+                    callback: function(response){
+                        window.location = "{% url 'success' %}" 
+                    },
+                    onClose: function(){
+                    alert('window closed');
+                    }
+                });
+                handler.openIframe();
+            }
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Glitter | Checkout</title>
+    <link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-5.2.0-beta1-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css' %}">
+    {% load crispy_forms_tags %}
+</head>
+<body>
+    <!-- HEADER -->
+    <section class="header">
+        <!-- LOGO SECTION -->
+        <div class="logo__section">
+            <img src="{% static 'images/projectx-logo.png' %}" alt="Logo" />
+            <p>Babies <span>Corner</span></p>
+        </div>
+
+        <!-- SEARCH SECTION -->
+        <div class="search__section">
+            <input class="search__box" type="text" placeholder="Search products, categories, brands and more" />
+        </div>
+
+        <!-- NAVIGATION -->
+        <nav>
+            <a href="/" class="nav__links">HOME</a>
+            <a href="/" class="nav__links">SHOP</a>
+            <a href="/" class="nav__links">FAQ</a>
+            <div>
+                <a href="/"><i id="icon" class="fa fa-shopping-cart"></i></a>
+                <a href="/"><i id="icon" class="fa fa-user"></i></a>
+            </div>
+        </nav>
+    </section>
+
+    <!-- BODY -->
+    <section class="body">
+        <div class="first-section">
+            <div class="form__section">
+                <p class="form__header">Checkout</p>
+    
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="form_input">{{ form.firstname }}</div>
+                    <div class="form_input">{{ form.lastname }}</div>
+                    <div class="form_input">{{ form.lastname }}</div>
+                    <div class="form_input">{{ form.apartment }}</div>
+                    <div class="form_input_long">{{ form.street_address }}</div>
+                    <div class="form_select">{{ form.state }}</div>
+                    <div class="form_input">{{ form.postal_code }}</div>
+                    <div class="form_input">{{ form.phone }}</div>
+                    <div class="form_textarea">{{ form.extra }}</div>
+
+                    <button class="submit" type="submit">SUBMIT</button>
+                </form>
+            </div>
+
+            <!-- <div class="form__section">
+                <p class="form__header">Payment</p>
+    
+                <form method="post">
+                    <input class="input" type="text" placeholder="Card Number" />
+                    <input type="text" placeholder="CVV" />
+                    <input type="text" placeholder="Card Expiry" />
+                    
+                    <a class="pay" href="">PAY &#8358;7,000</a>
+                </form>
+            </div> -->
+        </div>
+        
+        <div class="cart__subtotal__section">
+            <div class="subtotal__header">Subtotal</div>
+
+            <div class="subtotal__total__section">
+                {% if shipping %}
+                    {% if order.products.all %}
+                        <p class="subtotal__amount">Total - &#8358;{{ order.getSumTotal|intcomma }}</p>
+
+                        <a class="checkout"  href="{% url 'payment' %}">PROCEED TO PAY &#8358;{{ order.getSumTotal|intcomma }}</a>
+                    {% else %}
+                        <p class="subtotal__amount">Total - No items in cart</p>
+
+                        <a class="checkout"  href="{% url 'home' %}">ADD ITEMS TO CART <i class="fa fa-shopping-cart"></i></a>
+                    {% endif %}
+                {% else %}
+                    {% if order.products.all %}
+                        <p class="subtotal__amount">Total - &#8358;{{ order.getSumTotal|intcomma }}</p>
+
+                        <button class="checkout" disabled>
+                            <a href="{% url 'payment' %}">PROCEED TO PAY &#8358;{{ order.getSumTotal|intcomma }}</a>
+                        </button>
+                    {% else %}
+                        <p class="subtotal__amount">Total - No items in cart</p>
+                        
+                        <a class="checkout" href="{% url 'home' %}">ADD ITEMS TO CART <i class="fa fa-shopping-cart"></i></a>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</body>
+</html>
